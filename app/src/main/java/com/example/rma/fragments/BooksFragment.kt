@@ -121,20 +121,16 @@ class BooksFragment : Fragment() {
         }
 
 
-        // TODO fix this
         adapter.onButtonClick = { bookItem ->
-            // log book's ID
             Log.d("TAG FROM BUTTON CLICK", bookItem.id.toString())
             if(bookItem.favourite) {
                 CoroutineScope(Dispatchers.IO).launch {
                     bookItemViewModel.updateLike(false, bookItem.id)
                 }
-
             }else{
                 CoroutineScope(Dispatchers.IO).launch {
                     bookItemViewModel.updateLike(true, bookItem.id)
                 }
-
             }
         }
 
